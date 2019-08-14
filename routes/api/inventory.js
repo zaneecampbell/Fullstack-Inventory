@@ -60,4 +60,27 @@ router.post('/', [
   }
 ]);
 
+// @route GET api/inventory
+// @desc Get current users inventory
+// @access Private
+router.get('/', auth, async (req, res) => {
+  try {
+    const inventory = await Inventory.findOne({ user: req.user.id })
+      .select('-user')
+      .select('-_id')
+      .select('-__v');
+
+    if (!inventory) {
+      return res
+        .status(400)
+        .json({ msg: 'You currently have no items in your inventory' });
+    }
+
+    res.json(inventory);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
