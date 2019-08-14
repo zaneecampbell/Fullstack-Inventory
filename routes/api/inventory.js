@@ -76,7 +76,7 @@ router.get('/', auth, async (req, res) => {
         .json({ msg: 'You currently have no items in your inventory' });
     }
 
-    res.json(inventory);
+    res.json(inventory.items);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
