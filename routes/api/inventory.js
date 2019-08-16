@@ -23,26 +23,28 @@ router.post('/', [
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { item, amount } = req.body;
+    const { item, amount, index } = req.body;
 
     const user = {};
     user.user = req.user.id;
 
     const inventoryFields = {};
-    if (item) inventoryFields.item = item;
-    if (amount) inventoryFields.amount = amount;
+    inventoryFields.item = item;
+    inventoryFields.amount = amount;
+    inventoryFields.index = index;
+
+    console.log(inventoryFields);
 
     try {
       let inventory = await Inventory.findOne({ user: req.user.id });
 
       console.log(inventoryFields);
       if (inventory) {
-        // Update
+        // Update Inventory by adding new item
         inventory = await Inventory.findOneAndUpdate(
           { user: req.user.id },
           { $push: { items: inventoryFields } },
-          () => console.log('success'),
-          { new: true }
+          () => console.log('success')
         );
 
         return res.json(inventory);
@@ -59,6 +61,11 @@ router.post('/', [
     }
   }
 ]);
+
+// @route Patch /api/inventory
+// @desc update inventory amount
+// @access Private
+router.patch('/patch/inventory', async (req, res) => {});
 
 // @route GET api/inventory
 // @desc Get current users inventory
