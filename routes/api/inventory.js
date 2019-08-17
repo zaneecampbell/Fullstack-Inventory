@@ -38,7 +38,6 @@ router.post('/', [
     try {
       let inventory = await Inventory.findOne({ user: req.user.id });
 
-      console.log(inventoryFields);
       if (inventory) {
         // Update Inventory by adding new item
         inventory = await Inventory.findOneAndUpdate(
@@ -50,7 +49,7 @@ router.post('/', [
         return res.json(inventory);
       }
 
-      // Create4
+      // Create
       inventory = new Inventory({ items: inventoryFields, user: user.user });
 
       await inventory.save();
@@ -65,7 +64,27 @@ router.post('/', [
 // @route Patch /api/inventory
 // @desc update inventory amount
 // @access Private
-router.patch('/patch/inventory', async (req, res) => {});
+router.patch('/', auth, async (req, res) => {
+  try {
+    const { amount, index } = req.body;
+
+    const update = 'items.' + index + '.amount';
+
+    const updatedInventory = await Inventory.findOneAndUpdate(
+      { user: req.user.id },
+      { $set: { [update]: amount } },
+      { upsert: true },
+      () => console.log('success')
+    );
+
+    res.json(updatedInventory);
+  } catch (err) {
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Item not found' });
+    }
+    console.log(err);
+  }
+});
 
 // @route GET api/inventory
 // @desc Get current users inventory
