@@ -68,6 +68,7 @@ router.patch('/', auth, async (req, res) => {
   try {
     const { amount, index } = req.body;
 
+    // Have to create a string variable in dot notation to pass to update db
     const update = 'items.' + index + '.amount';
 
     const updatedInventory = await Inventory.findOneAndUpdate(
