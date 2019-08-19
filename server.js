@@ -10,9 +10,6 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-// Remove when deploying
-app.get('/', (req, res) => res.send('API Running'));
-
 // Defined Route/s
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/inventory', require('./routes/api/inventory'));
