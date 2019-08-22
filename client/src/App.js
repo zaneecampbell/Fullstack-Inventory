@@ -19,13 +19,15 @@ const App = () => {
   // }, []);
 
   return (
-    // <Provider store={store}>
-    <Router>
-      <Fragment>
-        <Route exact path='/' component={Login} />
-      </Fragment>
-    </Router>
-    // </Provider>
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Switch>
+            <Route exact path='/' component={Login} />
+          </Switch>
+        </Fragment>
+      </Router>
+    </Provider>
   );
 };
 
