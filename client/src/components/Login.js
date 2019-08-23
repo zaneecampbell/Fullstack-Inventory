@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Login = () => {
-  return <div>Hello</div>;
+  return <div />;
 };
 
 export default Login;
