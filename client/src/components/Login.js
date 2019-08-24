@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { login } from '../actions/auth';
 
-const Login = ({ login }) => {
+const Login = ({ login, isAuthenticated }) => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -21,6 +22,10 @@ const Login = ({ login }) => {
     e.preventDefault();
     login(email, password);
   };
+
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
 
   return (
     <Fragment>
