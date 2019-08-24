@@ -80,8 +80,8 @@ router.post(
 // @route GET api/users
 // @desc Authenticate user & get token (Login)
 // @access Public
-router.get(
-  '/',
+router.post(
+  '/login',
   [
     check('email', 'Please include a valid email').isEmail(),
     check('password', 'Password is required').exists()

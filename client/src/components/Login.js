@@ -18,7 +18,6 @@ const Login = ({ login }) => {
   };
 
   const onSubmit = async e => {
-    localStorage.removeItem('token');
     e.preventDefault();
     login(email, password);
   };
