@@ -1,7 +1,17 @@
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Dashboard = props => {
+const Dashboard = ({ isAuthenticated }) => {
+  if (!isAuthenticated) {
+    return <Redirect to='/' />;
+  }
+
   return <div>test</div>;
 };
 
-export default Dashboard;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Dashboard);
