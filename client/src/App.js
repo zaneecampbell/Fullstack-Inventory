@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/Login';
+import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 // Redux
 import { Provider } from 'react-redux';
@@ -20,6 +21,7 @@ const App = () => {
         <Fragment>
           <Switch>
             <Route exact path='/' component={Login} />
+            <Route exact path='/register' component={Register} />
             <Route exact path='/dashboard' component={Dashboard} />
           </Switch>
         </Fragment>

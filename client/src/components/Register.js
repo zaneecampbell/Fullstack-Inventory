@@ -8,7 +8,7 @@ import { register } from '../actions/auth';
 
 const Register = ({ register, isAuthenticated }) => {
   const [registerData, setRegisterData] = useState({
-    name,
+    name: '',
     email: '',
     password: ''
   });
@@ -16,7 +16,7 @@ const Register = ({ register, isAuthenticated }) => {
   const { name, email, password } = registerData;
 
   const onChange = e => {
-    setLoginData({ ...registerData, [e.target.name]: e.target.value });
+    setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => {
@@ -25,9 +25,6 @@ const Register = ({ register, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    alert(
-      'You are already registered, please logout to register a new account'
-    );
     return <Redirect to='/dashboard' />;
   }
 
@@ -99,6 +96,7 @@ const Register = ({ register, isAuthenticated }) => {
             Register
           </Button>
         </form>
+        <Button onClick={console.log(registerData)}></Button>
       </Paper>
     </Fragment>
   );
@@ -110,5 +108,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { login }
-)(Login);
+  { register }
+)(Register);

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
@@ -69,18 +69,34 @@ const Login = ({ login, isAuthenticated }) => {
             placeholder='Password'
             autoComplete='off'
           />
-          <Button
-            style={{
-              marginTop: '25px',
-              fontSize: '30px',
-              backgroundColor: '#3f51b5',
-              padding: '15px',
-              color: 'white'
-            }}
-            type='submit'
-          >
-            Login
-          </Button>
+          <span>
+            <Button
+              style={{
+                marginTop: '25px',
+                fontSize: '30px',
+                backgroundColor: '#3f51b5',
+                padding: '15px',
+                color: 'white'
+              }}
+              type='submit'
+            >
+              Login
+            </Button>
+            <Link to='/register'>
+              <Button
+                style={{
+                  marginTop: '25px',
+                  marginLeft: '25px',
+                  fontSize: '30px',
+                  backgroundColor: '#3f51b5',
+                  padding: '15px',
+                  color: 'white'
+                }}
+              >
+                or Register here
+              </Button>
+            </Link>
+          </span>
         </form>
       </Paper>
     </Fragment>
