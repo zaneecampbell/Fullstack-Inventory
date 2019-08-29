@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { setAlert } from './alert';
 
-import { GET_INVENTORY, INVENTORY_ERROR, UPDATE_INVENTORY } from './types';
+import { GET_INVENTORY, INVENTORY_ERROR } from './types';
 
 // Get current users inventory
 export const getCurrentInventory = () => async dispatch => {
@@ -13,8 +13,8 @@ export const getCurrentInventory = () => async dispatch => {
       payload: res.data
     });
   } catch (err) {
-    if (errors) {
-      console.log(errors);
+    if (err) {
+      console.log(err);
     }
 
     dispatch({
