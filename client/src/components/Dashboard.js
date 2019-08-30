@@ -3,7 +3,11 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentInventory } from '../actions/inventory';
 
-const Dashboard = ({ getCurrentInventory, isAuthenticated }) => {
+const Dashboard = ({
+  getCurrentInventory,
+  isAuthenticated,
+  inventory: { inventory, loading }
+}) => {
   useEffect(() => {
     getCurrentInventory();
   }, [getCurrentInventory]);
@@ -12,9 +16,20 @@ const Dashboard = ({ getCurrentInventory, isAuthenticated }) => {
     return <Redirect to='/' />;
   }
 
-  return (
+  return loading && inventory === null ? (
+    <h1>Loading Your Inventory</h1>
+  ) : (
     <div>
-      <button onClick={console.log()}></button>
+      <h1>Your Inventory</h1>
+      {inventory !== false ? (
+        inventory.map(item => (
+          <div>
+            {item.item}: {item.amount}
+          </div>
+        ))
+      ) : (
+        <div>Your inventory is empty</div>
+      )}
     </div>
   );
 };
