@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Paper from '@material-ui/core/Paper';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 import { getCurrentInventory } from '../actions/inventory';
 import AddNewItem from './AddNewItem';
 
@@ -10,30 +13,72 @@ const Dashboard = ({
   authLoading,
   inventory: { inventory, loading }
 }) => {
+  const [inventoryData, setInventoryData] = useState({
+    inventoryArray: []
+  });
+
+  const { inventoryArray } = inventoryData;
+
   useEffect(() => {
     getCurrentInventory();
-  }, [getCurrentInventory]);
+  }, []);
+
+  useEffect(() => {
+    setInventoryData({ ...inventoryData, inventoryArray: inventory });
+  }, [inventory, inventoryArray]);
 
   if (!isAuthenticated && !authLoading) {
     return <Redirect to='/' />;
   }
 
+  const onChange = e => {
+    let copy = inventoryArray;
+    copy[e.target.id].amount = e.target.value;
+    setInventoryData({ ...inventoryData, inventoryArray: copy });
+  };
+
   return loading && inventory === null ? (
     <h1>Loading Your Inventory...</h1>
   ) : (
-    <div>
-      <h1>Your Inventory</h1>
-      {inventory !== false ? (
-        inventory.map(item => (
-          <div key={item.index}>
-            {item.item}: {item.amount}
-          </div>
-        ))
-      ) : (
-        <div>Your inventory is empty</div>
-      )}
-      <AddNewItem />
-    </div>
+    <Fragment>
+      <Paper
+        style={{
+          maxWidth: '750px',
+          margin: 'auto',
+          marginTop: '50px',
+          padding: '10px',
+          paddingBottom: '30px',
+          textAlign: 'center'
+        }}
+      >
+        <h1>Your Inventory</h1>
+        {inventoryArray !== null ? (
+          <form>
+            {inventoryArray.map(item => (
+              <div key={item.index}>
+                {item.item}:{' '}
+                <input
+                  style={{
+                    fontSize: '22px',
+                    margin: '15px',
+                    marginBottom: '15px'
+                  }}
+                  type='number'
+                  id={`${item.index}`}
+                  placeholder='Enter Amount'
+                  name='amount'
+                  value={item.amount}
+                  onChange={e => onChange(e)}
+                ></input>
+              </div>
+            ))}
+          </form>
+        ) : (
+          <div>Your inventory is empty</div>
+        )}
+        <AddNewItem />
+      </Paper>
+    </Fragment>
   );
 };
 
