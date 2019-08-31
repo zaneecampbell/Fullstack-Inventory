@@ -23,7 +23,7 @@ const Login = ({ login, isAuthenticated }) => {
     login(email, password);
   };
 
-  if (isAuthenticated) {
+  if (localStorage.token) {
     return <Redirect to='/dashboard' />;
   }
 
