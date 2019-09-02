@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -25,6 +26,7 @@ const NavBar = ({ isAuthenticated, logout }) => {
 
   const onClick = async e => {
     e.preventDefault();
+    delete axios.defaults.headers.common['x-auth-token'];
     logout();
   };
 

@@ -11,6 +11,7 @@ const Dashboard = ({
   getCurrentInventory,
   isAuthenticated,
   authLoading,
+  user,
   inventory: { inventory, loading }
 }) => {
   const [inventoryData, setInventoryData] = useState({
@@ -20,11 +21,15 @@ const Dashboard = ({
   const { inventoryArray } = inventoryData;
 
   useEffect(() => {
-    getCurrentInventory();
-  }, []);
+    if (user !== null) {
+      getCurrentInventory();
+    }
+  }, [user]);
 
   useEffect(() => {
-    setInventoryData({ ...inventoryData, inventoryArray: inventory });
+    if (inventory) {
+      setInventoryData({ ...inventoryData, inventoryArray: inventory });
+    }
   }, [inventory, inventoryArray]);
 
   if (!isAuthenticated && !authLoading) {
@@ -52,7 +57,7 @@ const Dashboard = ({
         }}
       >
         <h1>Your Inventory</h1>
-        {inventoryArray !== null ? (
+        {inventory !== null ? (
           <form>
             {inventoryArray.map(item => (
               <div key={item.index}>
@@ -85,6 +90,7 @@ const Dashboard = ({
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
   authLoading: state.auth.loading,
+  user: state.auth.user,
   inventory: state.inventory
 });
 
