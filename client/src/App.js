@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import NavBar from './components/NavBar';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
+        <NavBar />
         <Fragment>
           <Switch>
             <Route exact path='/' component={Login} />
