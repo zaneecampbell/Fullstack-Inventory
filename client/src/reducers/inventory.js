@@ -32,7 +32,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         inventory: null,
-        loading: true
+        loading: false
       };
     default:
       return state;
