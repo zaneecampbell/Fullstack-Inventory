@@ -6,6 +6,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { getCurrentInventory } from '../actions/inventory';
 import AddNewItem from './AddNewItem';
+import Typography from '@material-ui/core/Typography';
 
 const Dashboard = ({
   getCurrentInventory,
@@ -56,25 +57,29 @@ const Dashboard = ({
           textAlign: 'center'
         }}
       >
-        <h1>Your Inventory</h1>
+        <Typography variant='h3' style={{ marginBottom: '20px' }}>
+          {user.name}'s Inventory
+        </Typography>
         {inventory !== null && loading === false ? (
           <form>
             {inventoryArray.map(item => (
               <div key={item.index}>
-                {item.item}:{' '}
-                <input
-                  style={{
-                    fontSize: '22px',
-                    margin: '15px',
-                    marginBottom: '15px'
-                  }}
-                  type='number'
-                  id={`${item.index}`}
-                  placeholder='Enter Amount'
-                  name='amount'
-                  value={item.amount}
-                  onChange={e => onChange(e)}
-                ></input>
+                <Typography variant='h5'>
+                  {item.item}:
+                  <input
+                    style={{
+                      fontSize: '22px',
+                      margin: '15px',
+                      marginBottom: '15px'
+                    }}
+                    type='number'
+                    id={`${item.index}`}
+                    placeholder='Enter Amount'
+                    name='amount'
+                    value={item.amount}
+                    onChange={e => onChange(e)}
+                  ></input>
+                </Typography>
               </div>
             ))}
           </form>
