@@ -57,7 +57,7 @@ const Dashboard = ({
         }}
       >
         <h1>Your Inventory</h1>
-        {inventory !== null ? (
+        {inventory !== null && loading === false ? (
           <form>
             {inventoryArray.map(item => (
               <div key={item.index}>

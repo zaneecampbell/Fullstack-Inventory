@@ -43,8 +43,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         token: null,
-        isAuthenticated: false,
-        loading: false
+        isAuthenticated: null,
+        loading: true
       };
     default:
       return state;
