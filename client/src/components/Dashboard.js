@@ -7,9 +7,11 @@ import Button from '@material-ui/core/Button';
 import { getCurrentInventory } from '../actions/inventory';
 import AddNewItem from './AddNewItem';
 import Typography from '@material-ui/core/Typography';
+import { inventoryUpdate } from '../actions/inventory';
 
 const Dashboard = ({
   getCurrentInventory,
+  inventoryUpdate,
   isAuthenticated,
   authLoading,
   user,
@@ -43,6 +45,12 @@ const Dashboard = ({
     setInventoryData({ ...inventoryData, inventoryArray: copy });
   };
 
+  const onSubmit = e => {
+    e.preventDefault();
+    const formData = inventoryArray;
+    inventoryUpdate(formData);
+  };
+
   return loading && inventory === null ? (
     <h1>Loading Your Inventory...</h1>
   ) : (
@@ -60,8 +68,9 @@ const Dashboard = ({
         <Typography variant='h3' style={{ marginBottom: '20px' }}>
           {user.name}'s Inventory
         </Typography>
+        <AddNewItem />
         {inventory !== null && loading === false ? (
-          <form>
+          <form onSubmit={e => onSubmit(e)}>
             {inventoryArray.map(item => (
               <div style={{ maxWidth: '980px' }} key={item.index}>
                 <Typography variant='h5'>
@@ -82,11 +91,24 @@ const Dashboard = ({
                 </Typography>
               </div>
             ))}
+            <Button
+              style={{
+                marginTop: '25px',
+                marginLeft: '25px',
+                marginBottom: '5px',
+                fontSize: '30px',
+                backgroundColor: '#3f51b5',
+                padding: '15px',
+                color: 'white'
+              }}
+              type='submit'
+            >
+              Update Inventory
+            </Button>
           </form>
         ) : (
           <h3>Your inventory is empty</h3>
         )}
-        <AddNewItem />
       </Paper>
     </Fragment>
   );
@@ -101,5 +123,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentInventory }
+  { getCurrentInventory, inventoryUpdate }
 )(Dashboard);

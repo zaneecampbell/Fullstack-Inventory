@@ -24,7 +24,7 @@ export const getCurrentInventory = () => async dispatch => {
   }
 };
 
-// Create or update inventory
+// Create or add to inventory
 export const createInventory = (formData, edit = false) => async dispatch => {
   try {
     const config = {
@@ -36,6 +36,39 @@ export const createInventory = (formData, edit = false) => async dispatch => {
     const body = formData;
 
     const res = await axios.post('/api/inventory', body, config);
+
+    dispatch(getCurrentInventory());
+
+    // dispatch(setAlert(edit ? 'Inventory Updated' : 'Inventory Created', 'success'));
+  } catch (err) {
+    console.log(err);
+    // const errors = err.response.data.errors;
+
+    // if (errors) {
+    //   console.log(errors);
+    // }
+
+    dispatch({
+      type: INVENTORY_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Update current inventory
+export const inventoryUpdate = (formData, edit = false) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const body = formData;
+
+    console.log(body);
+
+    const res = await axios.patch('/api/inventory', body, config);
 
     dispatch(getCurrentInventory());
 
