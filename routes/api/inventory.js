@@ -43,7 +43,7 @@ router.post('/', [
         inventory = await Inventory.findOneAndUpdate(
           { user: req.user.id },
           { $push: { items: inventoryFields } },
-          () => console.log('success')
+          { upsert: true }
         );
 
         return res.json(inventory);

@@ -63,7 +63,7 @@ const Dashboard = ({
         {inventory !== null && loading === false ? (
           <form>
             {inventoryArray.map(item => (
-              <div key={item.index}>
+              <div style={{ maxWidth: '980px' }} key={item.index}>
                 <Typography variant='h5'>
                   {item.item}:
                   <input
@@ -84,7 +84,7 @@ const Dashboard = ({
             ))}
           </form>
         ) : (
-          <div>Your inventory is empty</div>
+          <h3>Your inventory is empty</h3>
         )}
         <AddNewItem />
       </Paper>
