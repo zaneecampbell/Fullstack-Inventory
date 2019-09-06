@@ -11,7 +11,7 @@ const AddNewItem = ({ createInventory, inventory }) => {
 
   const { item, amount } = newItemData;
 
-  // This will be the index of the new item
+  // This will be the index/id of the new item for selecting/removing purposes
   let index;
 
   if (inventory) {
@@ -64,12 +64,9 @@ const AddNewItem = ({ createInventory, inventory }) => {
             ></input>
             <Button
               style={{
-                marginTop: '25px',
-                marginLeft: '25px',
-                marginBottom: '5px',
-                fontSize: '30px',
+                fontSize: '16px',
                 backgroundColor: '#3f51b5',
-                padding: '15px',
+                padding: '5px',
                 color: 'white'
               }}
               type='submit'

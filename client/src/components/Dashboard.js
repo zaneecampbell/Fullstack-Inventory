@@ -51,6 +51,10 @@ const Dashboard = ({
     inventoryUpdate(formData);
   };
 
+  const onDelete = (e, index) => {
+    e.preventDefault();
+    console.log(index);
+  };
   return loading && inventory === null ? (
     <h1>Loading Your Inventory...</h1>
   ) : (
@@ -88,6 +92,18 @@ const Dashboard = ({
                     value={item.amount}
                     onChange={e => onChange(e)}
                   ></input>
+                  <Button
+                    index={item.index}
+                    style={{
+                      fontSize: '16px',
+                      backgroundColor: 'rgb(147, 25, 37)',
+                      padding: '10px',
+                      color: 'white'
+                    }}
+                    onClick={e => onDelete(e, item.index)}
+                  >
+                    Remove
+                  </Button>
                 </Typography>
               </div>
             ))}
