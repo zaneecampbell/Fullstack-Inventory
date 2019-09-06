@@ -76,7 +76,7 @@ const Dashboard = ({
         <AddNewItem />
         {inventory !== null && loading === false ? (
           <form onSubmit={e => onSubmit(e)}>
-            {inventoryArray.map(item => (
+            {inventoryArray.map((item, idx) => (
               <div style={{ maxWidth: '980px' }} key={item.index}>
                 <Typography variant='h5'>
                   {item.item}:
@@ -87,7 +87,7 @@ const Dashboard = ({
                       marginBottom: '15px'
                     }}
                     type='number'
-                    id={`${item.index}`}
+                    id={`${idx}`}
                     placeholder='Enter Amount'
                     name='amount'
                     value={item.amount}
