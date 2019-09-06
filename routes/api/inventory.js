@@ -61,6 +61,7 @@ router.post('/', [
   }
 ]);
 
+// Original patch route may be useful in the future
 // @route Patch /api/inventory
 // @desc update inventory amount
 // @access Private
@@ -105,6 +106,25 @@ router.patch('/', auth, async (req, res) => {
       return res.status(404).json({ msg: 'Item not found' });
     }
     console.log(err);
+  }
+});
+
+// @route Delete api/inventory
+// @desc Remove inventory item
+// @access Private
+router.delete('/:index', auth, async (req, res) => {
+  const number = parseInt(req.params.index);
+  const remover = { index: number };
+  try {
+    const updatedInventory = await Inventory.findOneAndUpdate(
+      { user: req.user.id },
+      { $pull: { items: remover } },
+      { upsert: true }
+    );
+    res.json(updatedInventory);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
   }
 });
 

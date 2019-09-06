@@ -55,7 +55,38 @@ export const createInventory = (formData, edit = false) => async dispatch => {
   }
 };
 
-// Update current inventory
+// Remove item from inventory
+export const deleteItem = index => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const body = JSON.stringify(index);
+
+    const res = await axios.delete(`/api/inventory/${index}`);
+
+    dispatch(getCurrentInventory());
+
+    // dispatch(setAlert(edit ? 'Inventory Updated' : 'Inventory Created', 'success'));
+  } catch (err) {
+    console.log(err);
+    // const errors = err.response.data.errors;
+
+    // if (errors) {
+    //   console.log(errors);
+    // }
+
+    dispatch({
+      type: INVENTORY_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Update current inventory amounts
 export const inventoryUpdate = (formData, edit = false) => async dispatch => {
   try {
     const config = {

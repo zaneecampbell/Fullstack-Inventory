@@ -31,52 +31,49 @@ const AddNewItem = ({ createInventory, inventory }) => {
   };
 
   return (
-    console.log(index),
-    (
-      <div style={{ borderStyle: 'solid', borderWidth: '1px' }}>
-        <form onSubmit={e => onSubmit(e)}>
-          <span>
-            <input
-              style={{
-                fontSize: '22px',
-                margin: '15px',
-                marginBottom: '15px'
-              }}
-              type='text'
-              id={`${item.index}`}
-              placeholder='Enter item name'
-              name='item'
-              value={item}
-              onChange={e => onChange(e)}
-            ></input>
-            <input
-              style={{
-                fontSize: '22px',
-                margin: '15px',
-                marginBottom: '15px'
-              }}
-              type='number'
-              id={`${item.index}`}
-              placeholder='Enter Amount'
-              name='amount'
-              value={amount}
-              onChange={e => onChange(e)}
-            ></input>
-            <Button
-              style={{
-                fontSize: '16px',
-                backgroundColor: '#3f51b5',
-                padding: '5px',
-                color: 'white'
-              }}
-              type='submit'
-            >
-              Add New Item
-            </Button>
-          </span>
-        </form>
-      </div>
-    )
+    <div style={{ borderStyle: 'solid', borderWidth: '1px' }}>
+      <form onSubmit={e => onSubmit(e)}>
+        <span>
+          <input
+            style={{
+              fontSize: '22px',
+              margin: '15px',
+              marginBottom: '15px'
+            }}
+            type='text'
+            id={`${item.index}`}
+            placeholder='Enter item name'
+            name='item'
+            value={item}
+            onChange={e => onChange(e)}
+          ></input>
+          <input
+            style={{
+              fontSize: '22px',
+              margin: '15px',
+              marginBottom: '15px'
+            }}
+            type='number'
+            id={`${item.index}`}
+            placeholder='Enter Amount'
+            name='amount'
+            value={amount}
+            onChange={e => onChange(e)}
+          ></input>
+          <Button
+            style={{
+              fontSize: '16px',
+              backgroundColor: '#3f51b5',
+              padding: '5px',
+              color: 'white'
+            }}
+            type='submit'
+          >
+            Add New Item
+          </Button>
+        </span>
+      </form>
+    </div>
   );
 };
 

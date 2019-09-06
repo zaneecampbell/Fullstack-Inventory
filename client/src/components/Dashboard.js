@@ -7,11 +7,12 @@ import Button from '@material-ui/core/Button';
 import { getCurrentInventory } from '../actions/inventory';
 import AddNewItem from './AddNewItem';
 import Typography from '@material-ui/core/Typography';
-import { inventoryUpdate } from '../actions/inventory';
+import { inventoryUpdate, deleteItem } from '../actions/inventory';
 
 const Dashboard = ({
   getCurrentInventory,
   inventoryUpdate,
+  deleteItem,
   isAuthenticated,
   authLoading,
   user,
@@ -53,7 +54,7 @@ const Dashboard = ({
 
   const onDelete = (e, index) => {
     e.preventDefault();
-    console.log(index);
+    deleteItem(index);
   };
   return loading && inventory === null ? (
     <h1>Loading Your Inventory...</h1>
@@ -93,7 +94,6 @@ const Dashboard = ({
                     onChange={e => onChange(e)}
                   ></input>
                   <Button
-                    index={item.index}
                     style={{
                       fontSize: '16px',
                       backgroundColor: 'rgb(147, 25, 37)',
@@ -139,5 +139,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentInventory, inventoryUpdate }
+  { getCurrentInventory, inventoryUpdate, deleteItem }
 )(Dashboard);
