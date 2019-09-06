@@ -82,7 +82,7 @@ const Login = ({ login, isAuthenticated }) => {
             >
               Login
             </Button>
-            <Link to='/register'>
+            <Link style={{ textDecoration: 'none' }} to='/register'>
               <Button
                 style={{
                   marginTop: '25px',

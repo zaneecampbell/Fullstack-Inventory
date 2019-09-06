@@ -33,35 +33,42 @@ const AddNewItem = ({ createInventory, inventory }) => {
   };
 
   return (
-    <div style={{ borderStyle: 'solid', borderWidth: '1px' }}>
+    <div
+      style={{
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderRadius: '10px',
+        marginBottom: '15px'
+      }}
+    >
       <form onSubmit={e => onSubmit(e)}>
-        <span>
-          <input
-            style={{
-              fontSize: '22px',
-              margin: '15px',
-              marginBottom: '15px'
-            }}
-            type='text'
-            id={`${item.index}`}
-            placeholder='Enter item name'
-            name='item'
-            value={item}
-            onChange={e => onChange(e)}
-          ></input>
-          <input
-            style={{
-              fontSize: '22px',
-              margin: '15px',
-              marginBottom: '15px'
-            }}
-            type='number'
-            id={`${item.index}`}
-            placeholder='Enter Amount'
-            name='amount'
-            value={amount}
-            onChange={e => onChange(e)}
-          ></input>
+        <input
+          style={{
+            fontSize: '22px',
+            margin: '15px',
+            marginBottom: '15px'
+          }}
+          type='text'
+          id={`${item.index}`}
+          placeholder='Add New Item'
+          name='item'
+          value={item}
+          onChange={e => onChange(e)}
+        ></input>
+        <input
+          style={{
+            fontSize: '22px',
+            margin: '15px',
+            marginBottom: '15px'
+          }}
+          type='number'
+          id={`${item.index}`}
+          placeholder='Enter Amount'
+          name='amount'
+          value={amount}
+          onChange={e => onChange(e)}
+        ></input>
+        <div style={{ marginBottom: '15px' }}>
           <Button
             style={{
               fontSize: '16px',
@@ -73,7 +80,7 @@ const AddNewItem = ({ createInventory, inventory }) => {
           >
             Add New Item
           </Button>
-        </span>
+        </div>
       </form>
     </div>
   );
