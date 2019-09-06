@@ -69,7 +69,7 @@ const Login = ({ login, isAuthenticated }) => {
             placeholder='Password'
             autoComplete='off'
           />
-          <span>
+          <div>
             <Button
               style={{
                 marginTop: '25px',
@@ -96,7 +96,7 @@ const Login = ({ login, isAuthenticated }) => {
                 or Register here
               </Button>
             </Link>
-          </span>
+          </div>
         </form>
       </Paper>
     </Fragment>
