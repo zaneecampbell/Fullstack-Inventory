@@ -17,6 +17,8 @@ const AddNewItem = ({ createInventory, inventory }) => {
   if (inventory) {
     if (inventory[0] !== undefined) {
       index = inventory[inventory.length - 1].index + 1;
+    } else {
+      index = 0;
     }
   } else {
     index = 0;
