@@ -32,6 +32,7 @@ const AddNewItem = ({ createInventory, inventory }) => {
     e.preventDefault();
     const formData = { item, amount, index };
     createInventory(formData);
+    setNewItemData({ ...newItemData, item: '', amount: 0 });
   };
 
   return (
@@ -43,7 +44,7 @@ const AddNewItem = ({ createInventory, inventory }) => {
         marginBottom: '15px'
       }}
     >
-      <form onSubmit={e => onSubmit(e)}>
+      <form onSubmit={e => onSubmit(e)} id='newItemForm'>
         <input
           style={{
             fontSize: '22px',
