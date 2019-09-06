@@ -35,7 +35,8 @@ export const createInventory = (formData, edit = false) => async dispatch => {
 
     const body = formData;
 
-    const res = await axios.post('/api/inventory', body, config);
+    // const res = await axios.post('/api/inventory', body, config);
+    await axios.post('/api/inventory', body, config);
 
     dispatch(getCurrentInventory());
 
@@ -58,15 +59,8 @@ export const createInventory = (formData, edit = false) => async dispatch => {
 // Remove item from inventory
 export const deleteItem = index => async dispatch => {
   try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-
-    const body = JSON.stringify(index);
-
-    const res = await axios.delete(`/api/inventory/${index}`);
+    // const res = await axios.delete(`/api/inventory/${index}`);
+    await axios.delete(`/api/inventory/${index}`);
 
     dispatch(getCurrentInventory());
 
@@ -99,7 +93,8 @@ export const inventoryUpdate = (formData, edit = false) => async dispatch => {
 
     console.log(body);
 
-    const res = await axios.patch('/api/inventory', body, config);
+    // const res = await axios.patch('/api/inventory', body, config);
+    await axios.patch('/api/inventory', body, config);
 
     dispatch(getCurrentInventory());
 

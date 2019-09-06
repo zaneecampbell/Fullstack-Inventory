@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
-import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { getCurrentInventory } from '../actions/inventory';
 import AddNewItem from './AddNewItem';
@@ -28,7 +27,7 @@ const Dashboard = ({
     if (user !== null) {
       getCurrentInventory();
     }
-  }, [user]);
+  }, [user, getCurrentInventory]);
 
   useEffect(() => {
     if (inventory) {
