@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Inventory:Inventory@inventory-a2zai.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
