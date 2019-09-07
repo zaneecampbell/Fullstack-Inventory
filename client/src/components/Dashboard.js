@@ -57,7 +57,17 @@ const Dashboard = ({
     deleteItem(index);
   };
   return loading && inventory === null ? (
-    <h1>Loading Your Inventory...</h1>
+    <Paper
+      style={{
+        textAlign: 'center',
+        padding: '20px',
+        margin: 'auto',
+        marginTop: '20px',
+        maxWidth: '750px'
+      }}
+    >
+      <h1>Loading Your Inventory...</h1>
+    </Paper>
   ) : (
     <Fragment>
       <Paper
@@ -85,7 +95,10 @@ const Dashboard = ({
         {inventory !== null && loading === false ? (
           <form onSubmit={e => onSubmit(e)}>
             {inventoryArray.map((item, idx) => (
-              <div style={{ maxWidth: '980px' }} key={item.index}>
+              <div
+                style={{ maxWidth: '980px', display: 'inline' }}
+                key={item.index}
+              >
                 <Typography variant='h5'>
                   {item.item}:
                   <input
