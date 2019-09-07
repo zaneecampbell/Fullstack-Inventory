@@ -76,7 +76,7 @@ const AddNewItem = ({ createInventory, inventory }) => {
             style={{
               fontSize: '16px',
               backgroundColor: '#3f51b5',
-              padding: '5px',
+              padding: '10px',
               color: 'white'
             }}
             type='submit'

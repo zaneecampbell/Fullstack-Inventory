@@ -95,17 +95,15 @@ const Dashboard = ({
         {inventory !== null && loading === false ? (
           <form onSubmit={e => onSubmit(e)}>
             {inventoryArray.map((item, idx) => (
-              <div
-                style={{ maxWidth: '980px', display: 'inline' }}
-                key={item.index}
-              >
+              <div style={{ maxWidth: '980px' }} key={item.index}>
                 <Typography variant='h5'>
                   {item.item}:
                   <input
                     style={{
                       fontSize: '22px',
                       margin: '15px',
-                      marginBottom: '15px'
+                      marginBottom: '15px',
+                      width: '25%'
                     }}
                     type='number'
                     id={`${idx}`}
@@ -118,12 +116,12 @@ const Dashboard = ({
                     style={{
                       fontSize: '16px',
                       backgroundColor: 'rgb(147, 25, 37)',
-                      padding: '10px',
+                      padding: '5px',
                       color: 'white'
                     }}
                     onClick={e => onDelete(e, item.index)}
                   >
-                    Remove
+                    X
                   </Button>
                 </Typography>
               </div>
