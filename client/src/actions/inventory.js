@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { setAlert } from './alert';
+import { setAlert } from './alert';
 
 import { GET_INVENTORY, INVENTORY_ERROR } from './types';
 
@@ -39,15 +39,13 @@ export const createInventory = (formData, edit = false) => async dispatch => {
     await axios.post('/api/inventory', body, config);
 
     dispatch(getCurrentInventory());
-
-    // dispatch(setAlert(edit ? 'Inventory Updated' : 'Inventory Created', 'success'));
   } catch (err) {
     console.log(err);
-    // const errors = err.response.data.errors;
+    const errors = err.response.data.errors;
 
-    // if (errors) {
-    //   console.log(errors);
-    // }
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg)));
+    }
 
     dispatch({
       type: INVENTORY_ERROR,
@@ -63,15 +61,13 @@ export const deleteItem = index => async dispatch => {
     await axios.delete(`/api/inventory/${index}`);
 
     dispatch(getCurrentInventory());
-
-    // dispatch(setAlert(edit ? 'Inventory Updated' : 'Inventory Created', 'success'));
   } catch (err) {
     console.log(err);
-    // const errors = err.response.data.errors;
+    const errors = err.response.data.errors;
 
-    // if (errors) {
-    //   console.log(errors);
-    // }
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg)));
+    }
 
     dispatch({
       type: INVENTORY_ERROR,
@@ -97,15 +93,13 @@ export const inventoryUpdate = (formData, edit = false) => async dispatch => {
     await axios.patch('/api/inventory', body, config);
 
     dispatch(getCurrentInventory());
-
-    // dispatch(setAlert(edit ? 'Inventory Updated' : 'Inventory Created', 'success'));
   } catch (err) {
     console.log(err);
-    // const errors = err.response.data.errors;
+    const errors = err.response.data.errors;
 
-    // if (errors) {
-    //   console.log(errors);
-    // }
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg)));
+    }
 
     dispatch({
       type: INVENTORY_ERROR,

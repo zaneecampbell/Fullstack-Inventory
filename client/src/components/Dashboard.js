@@ -73,6 +73,14 @@ const Dashboard = ({
         <Typography variant='h3' style={{ marginBottom: '20px' }}>
           {user.name}'s Inventory
         </Typography>
+        {alerts.map((alert, idx) => (
+          <Typography
+            style={{ background: 'red', color: 'white', fontSize: '22px' }}
+            key={idx}
+          >
+            {alert.msg}
+          </Typography>
+        ))}
         <AddNewItem />
         {inventory !== null && loading === false ? (
           <form onSubmit={e => onSubmit(e)}>
@@ -123,7 +131,17 @@ const Dashboard = ({
             </Button>
           </form>
         ) : (
-          <h3>Your inventory is empty</h3>
+          <div>
+            {alerts.map((alert, idx) => (
+              <Typography
+                style={{ background: 'red', color: 'white', fontSize: '22px' }}
+                key={idx}
+              >
+                {alert.msg}
+              </Typography>
+            ))}
+            <h3>Your inventory is empty</h3>
+          </div>
         )}
       </Paper>
     </Fragment>
