@@ -74,9 +74,10 @@ const Login = ({ login, isAuthenticated, alerts }) => {
             autoComplete='off'
           />
           <div>
-            {alerts.map(alert => (
+            {alerts.map((alert, idx) => (
               <Typography
-                style={{ background: 'red', color: 'white', fontSize: '16px' }}
+                style={{ background: 'red', color: 'white', fontSize: '22px' }}
+                key={idx}
               >
                 {alert.msg}
               </Typography>
