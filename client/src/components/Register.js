@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -104,8 +104,21 @@ const Register = ({ register, isAuthenticated, alerts }) => {
           >
             Register
           </Button>
+          <Link style={{ textDecoration: 'none' }} to='/'>
+            <Button
+              style={{
+                marginTop: '25px',
+                marginLeft: '25px',
+                fontSize: '30px',
+                backgroundColor: '#3f51b5',
+                padding: '15px',
+                color: 'white'
+              }}
+            >
+              Return to Login
+            </Button>
+          </Link>
         </form>
-        <Button onClick={console.log(registerData)}></Button>
       </Paper>
     </Fragment>
   );
