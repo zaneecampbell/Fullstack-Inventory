@@ -24,13 +24,15 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <NavBar />
-        <Fragment>
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/dashboard' component={Dashboard} />
-          </Switch>
-        </Fragment>
+        <div style={{ marginRight: '10px', marginLeft: '10px' }}>
+          <Fragment>
+            <Switch>
+              <Route exact path='/' component={Login} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/dashboard' component={Dashboard} />
+            </Switch>
+          </Fragment>
+        </div>
       </Router>
     </Provider>
   );

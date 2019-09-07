@@ -11,6 +11,7 @@ import { logout } from '../actions/auth';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    margin: 0,
     flexGrow: 1
   },
   menuButton: {
