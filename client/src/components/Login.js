@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
@@ -20,6 +21,9 @@ const Login = ({ login, isAuthenticated, alerts }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
+    if (!email || !password) {
+      return alert('Please include email and password');
+    }
     login(email, password);
   };
 
@@ -71,9 +75,11 @@ const Login = ({ login, isAuthenticated, alerts }) => {
           />
           <div>
             {alerts.map(alert => (
-              <div style={{ background: 'red', color: 'white' }}>
+              <Typography
+                style={{ background: 'red', color: 'white', fontSize: '16px' }}
+              >
                 {alert.msg}
-              </div>
+              </Typography>
             ))}
             <Button
               style={{

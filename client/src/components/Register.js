@@ -1,12 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { register } from '../actions/auth';
 
-const Register = ({ register, isAuthenticated }) => {
+const Register = ({ register, isAuthenticated, alerts }) => {
   const [registerData, setRegisterData] = useState({
     name: '',
     email: '',
@@ -83,6 +84,13 @@ const Register = ({ register, isAuthenticated }) => {
             placeholder='Password'
             autoComplete='off'
           />
+          {alerts.map(alert => (
+            <Typography
+              style={{ background: 'red', color: 'white', fontSize: '22px' }}
+            >
+              {alert.msg}
+            </Typography>
+          ))}
           <Button
             style={{
               marginTop: '25px',
@@ -103,7 +111,8 @@ const Register = ({ register, isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  alerts: state.alert
 });
 
 export default connect(
