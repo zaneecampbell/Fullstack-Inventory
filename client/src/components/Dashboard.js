@@ -15,7 +15,8 @@ const Dashboard = ({
   isAuthenticated,
   authLoading,
   user,
-  inventory: { inventory, loading }
+  inventory: { inventory, loading },
+  alerts
 }) => {
   const [inventoryData, setInventoryData] = useState({
     inventoryArray: []
@@ -133,7 +134,8 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
   authLoading: state.auth.loading,
   user: state.auth.user,
-  inventory: state.inventory
+  inventory: state.inventory,
+  alerts: state.alert
 });
 
 export default connect(

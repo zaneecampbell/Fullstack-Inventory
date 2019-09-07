@@ -9,3 +9,5 @@ export const INVENTORY_ERROR = 'INVENTORY_ERROR';
 export const UPDATE_INVENTORY = 'UPDATE_INVENTORY';
 export const CLEAR_INVENTORY = 'CLEAR_INVENTORY';
 export const LOGOUT = 'LOGOUT';
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';

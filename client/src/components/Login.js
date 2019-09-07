@@ -6,7 +6,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { login } from '../actions/auth';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, alerts }) => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -70,6 +70,11 @@ const Login = ({ login, isAuthenticated }) => {
             autoComplete='off'
           />
           <div>
+            {alerts.map(alert => (
+              <div style={{ background: 'red', color: 'white' }}>
+                {alert.msg}
+              </div>
+            ))}
             <Button
               style={{
                 marginTop: '25px',
@@ -104,7 +109,8 @@ const Login = ({ login, isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  alerts: state.alert
 });
 
 export default connect(
