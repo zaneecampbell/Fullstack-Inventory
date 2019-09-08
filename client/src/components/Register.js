@@ -6,8 +6,9 @@ import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { register } from '../actions/auth';
+import { setAlert } from '../actions/alert';
 
-const Register = ({ register, isAuthenticated, alerts }) => {
+const Register = ({ register, isAuthenticated, alerts, setAlert }) => {
   const [registerData, setRegisterData] = useState({
     name: '',
     email: '',
@@ -26,7 +27,7 @@ const Register = ({ register, isAuthenticated, alerts }) => {
     if (password === password2) {
       register(name, email, password);
     } else {
-      alert('Passwords do not match');
+      setAlert('Passwords do not match');
     }
   };
 
@@ -149,7 +150,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { register }
+  { register, setAlert }
 )(Register);
 
 // Add 2nd password field for verification
