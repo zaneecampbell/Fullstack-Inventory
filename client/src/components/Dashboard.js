@@ -80,9 +80,15 @@ const Dashboard = ({
           textAlign: 'center'
         }}
       >
-        <Typography variant='h3' style={{ marginBottom: '20px' }}>
-          {user.name}'s Inventory
-        </Typography>
+        {user !== null ? (
+          <Typography variant='h3' style={{ marginBottom: '20px' }}>
+            {user.name}'s Inventory
+          </Typography>
+        ) : (
+          <Typography variant='h3' style={{ marginBottom: '20px' }}>
+            Your Inventory
+          </Typography>
+        )}
         {alerts.map((alert, idx) => (
           <Typography
             style={{ background: 'red', color: 'white', fontSize: '22px' }}
@@ -171,3 +177,5 @@ export default connect(
   mapStateToProps,
   { getCurrentInventory, inventoryUpdate, deleteItem }
 )(Dashboard);
+
+// Add alert for update confirmation

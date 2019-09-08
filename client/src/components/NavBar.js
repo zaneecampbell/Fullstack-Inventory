@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,13 +23,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NavBar = ({ isAuthenticated, logout }) => {
+const NavBar = ({ isAuthenticated, logout, history }) => {
   const classes = useStyles();
 
   const onClick = async e => {
     e.preventDefault();
     delete axios.defaults.headers.common['x-auth-token'];
     logout();
+    return history.push(`/`);
   };
 
   return isAuthenticated === true ? (
@@ -44,7 +46,7 @@ const NavBar = ({ isAuthenticated, logout }) => {
           <Typography variant='h6' className={classes.title}>
             Full Stack Inventory App
           </Typography>
-          <Button color='inherit' onClick={e => onClick(e)}>
+          <Button color='inherit' onClick={(e, history) => onClick(e, history)}>
             Logout
           </Button>
         </Toolbar>
@@ -73,7 +75,9 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(NavBar);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { logout }
+  )(NavBar)
+);

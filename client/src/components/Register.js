@@ -11,10 +11,11 @@ const Register = ({ register, isAuthenticated, alerts }) => {
   const [registerData, setRegisterData] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    password2: ''
   });
 
-  const { name, email, password } = registerData;
+  const { name, email, password, password2 } = registerData;
 
   const onChange = e => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
@@ -22,7 +23,11 @@ const Register = ({ register, isAuthenticated, alerts }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    register(name, email, password);
+    if (password === password2) {
+      register(name, email, password);
+    } else {
+      alert('Passwords do not match');
+    }
   };
 
   if (isAuthenticated) {
@@ -84,6 +89,19 @@ const Register = ({ register, isAuthenticated, alerts }) => {
             placeholder='Password'
             autoComplete='off'
           />
+          <Input
+            style={{
+              fontSize: '50px',
+              margin: '15px',
+              marginBottom: '50px'
+            }}
+            type='password'
+            value={password2}
+            name='password2'
+            onChange={e => onChange(e)}
+            placeholder='Retype Your Password'
+            autoComplete='off'
+          />
           {alerts.map((alert, idx) => (
             <Typography
               style={{ background: 'red', color: 'white', fontSize: '22px' }}
@@ -133,3 +151,5 @@ export default connect(
   mapStateToProps,
   { register }
 )(Register);
+
+// Add 2nd password field for verification
