@@ -152,5 +152,3 @@ export default connect(
   mapStateToProps,
   { register, setAlert }
 )(Register);
-
-// Add 2nd password field for verification

@@ -92,6 +92,7 @@ export const inventoryUpdate = (formData, edit = false) => async dispatch => {
     // const res = await axios.patch('/api/inventory', body, config);
     await axios.patch('/api/inventory', body, config);
 
+    dispatch(setAlert('Inventory Updated!'));
     dispatch(getCurrentInventory());
   } catch (err) {
     console.log(err);
