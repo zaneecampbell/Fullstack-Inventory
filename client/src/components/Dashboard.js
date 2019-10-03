@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { getCurrentInventory } from '../actions/inventory';
 import AddNewItem from './AddNewItem';
@@ -101,41 +102,45 @@ const Dashboard = ({
         {inventory !== null && loading === false ? (
           <form onSubmit={e => onSubmit(e)}>
             {inventoryArray.map((item, idx) => (
-              <div style={{ maxWidth: '980px' }} key={item.index}>
+              <Grid container justify='center' key={item.index}>
                 <Typography variant='h5'>
-                  {item.item}:
-                  <input
-                    style={{
-                      fontSize: '22px',
-                      margin: '15px',
-                      marginBottom: '15px',
-                      width: '25%'
-                    }}
-                    type='number'
-                    id={`${idx}`}
-                    placeholder='Enter Amount'
-                    name='amount'
-                    value={item.amount}
-                    onChange={e => onChange(e)}
-                  ></input>
-                  <Button
-                    style={{
-                      fontSize: '16px',
-                      backgroundColor: 'rgb(147, 25, 37)',
-                      padding: '5px',
-                      color: 'white'
-                    }}
-                    onClick={e => onDelete(e, item.index)}
-                  >
-                    X
-                  </Button>
+                  <Grid style={{ textAlign: 'left' }} xs={12} item>
+                    {item.item}:
+                  </Grid>
+                  <Grid xs={12} item>
+                    <input
+                      style={{
+                        fontSize: '22px',
+                        marginTop: '15px',
+                        marginBottom: '15px',
+                        marginRight: '15px',
+                        maxWidth: '100px'
+                      }}
+                      type='number'
+                      id={`${idx}`}
+                      placeholder='Enter Amount'
+                      name='amount'
+                      value={item.amount}
+                      onChange={e => onChange(e)}
+                    ></input>
+                    <Button
+                      style={{
+                        fontSize: '16px',
+                        backgroundColor: 'rgb(147, 25, 37)',
+                        padding: '5px',
+                        color: 'white'
+                      }}
+                      onClick={e => onDelete(e, item.index)}
+                    >
+                      X
+                    </Button>
+                  </Grid>
                 </Typography>
-              </div>
+              </Grid>
             ))}
             <Button
               style={{
                 marginTop: '25px',
-                marginLeft: '25px',
                 marginBottom: '5px',
                 fontSize: '30px',
                 backgroundColor: '#3f51b5',
