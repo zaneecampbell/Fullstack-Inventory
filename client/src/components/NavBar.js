@@ -47,6 +47,7 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
       return alert('Please include email and password');
     }
     login(email, password);
+    setLoginData({ ...loginData, password: '' });
   };
 
   const onClick = async e => {
@@ -210,3 +211,5 @@ export default withRouter(
     { logout, login }
   )(NavBar)
 );
+
+// clear form on login
