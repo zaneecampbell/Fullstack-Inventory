@@ -67,15 +67,12 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
   };
 
   return isAuthenticated === true ? (
-    <div className={classes.root}>
-      <AppBar position='static'>
+    <div style={{ backgroundColor: '#3f51b5' }} className={classes.root}>
+      <AppBar
+        style={{ maxWidth: '1100px', margin: 'auto', boxShadow: 'none' }}
+        position='static'
+      >
         <Toolbar>
-          <IconButton
-            edge='start'
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='menu'
-          ></IconButton>
           <Typography variant='h6' className={classes.title}>
             Full Stack Inventory App
           </Typography>
@@ -86,115 +83,114 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
       </AppBar>
     </div>
   ) : (
-    <div className={classes.root}>
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton
-            edge='start'
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='menu'
-          ></IconButton>
-          <Typography variant='h6' className={classes.title}>
-            Full Stack Inventory App
-          </Typography>
-          <Button color='inherit' onClick={handleOpen}>
-            Login
-          </Button>
-          <Modal
-            aria-labelledby='simple-modal-title'
-            aria-describedby='simple-modal-description'
-            open={open}
-            onClose={handleClose}
-          >
-            <Paper
-              style={{
-                maxWidth: '750px',
-                margin: 'auto',
-                marginTop: '50px',
-                padding: '10px',
-                paddingBottom: '30px',
-                textAlign: 'center'
-              }}
+    <div style={{ backgroundColor: '#3f51b5' }} className={classes.root}>
+      <AppBar
+        style={{ maxWidth: '1100px', margin: 'auto', boxShadow: 'none' }}
+        position='static'
+      >
+        <div>
+          <Toolbar>
+            <Typography variant='h6' className={classes.title}>
+              Full Stack Inventory App
+            </Typography>
+            <Button color='inherit' onClick={handleOpen}>
+              Login
+            </Button>
+            <Modal
+              aria-labelledby='simple-modal-title'
+              aria-describedby='simple-modal-description'
+              open={open}
+              onClose={handleClose}
             >
-              <form
-                style={{ marginTop: '50px', marginBottom: '50px' }}
-                onSubmit={e => onSubmit(e)}
+              <Paper
+                style={{
+                  maxWidth: '750px',
+                  margin: 'auto',
+                  marginTop: '50px',
+                  padding: '10px',
+                  paddingBottom: '30px',
+                  textAlign: 'center'
+                }}
               >
-                <Input
-                  style={{
-                    fontSize: '50px',
-                    margin: '15px',
-                    marginBottom: '50px'
-                  }}
-                  type='email'
-                  placeholder='Email Address'
-                  name='email'
-                  value={email}
-                  onChange={e => onChange(e)}
-                  required
-                />
-                <Input
-                  style={{
-                    fontSize: '50px',
-                    margin: '15px',
-                    marginBottom: '50px'
-                  }}
-                  type='password'
-                  value={password}
-                  name='password'
-                  onChange={e => onChange(e)}
-                  placeholder='Password'
-                  autoComplete='off'
-                />
-                <div>
-                  {alerts.map((alert, idx) => (
-                    <Typography
-                      style={{
-                        background: 'red',
-                        color: 'white',
-                        fontSize: '22px'
-                      }}
-                      key={idx}
-                    >
-                      {alert.msg}
-                    </Typography>
-                  ))}
-                  <Button
+                <form
+                  style={{ marginTop: '50px', marginBottom: '50px' }}
+                  onSubmit={e => onSubmit(e)}
+                >
+                  <Input
                     style={{
-                      marginTop: '25px',
-                      fontSize: '30px',
-                      backgroundColor: '#3f51b5',
-                      padding: '15px',
-                      color: 'white'
+                      fontSize: '50px',
+                      margin: '15px',
+                      marginBottom: '50px'
                     }}
-                    type='submit'
-                  >
-                    Login
-                  </Button>
-                  <Link
-                    style={{ textDecoration: 'none' }}
-                    onClick={handleClose}
-                    to='/register'
-                  >
+                    type='email'
+                    placeholder='Email Address'
+                    name='email'
+                    value={email}
+                    onChange={e => onChange(e)}
+                    required
+                  />
+                  <Input
+                    style={{
+                      fontSize: '50px',
+                      margin: '15px',
+                      marginBottom: '50px'
+                    }}
+                    type='password'
+                    value={password}
+                    name='password'
+                    onChange={e => onChange(e)}
+                    placeholder='Password'
+                    autoComplete='off'
+                  />
+                  <div>
+                    {alerts.map((alert, idx) => (
+                      <Typography
+                        style={{
+                          background: 'red',
+                          color: 'white',
+                          fontSize: '22px'
+                        }}
+                        key={idx}
+                      >
+                        {alert.msg}
+                      </Typography>
+                    ))}
                     <Button
                       style={{
                         marginTop: '25px',
-                        marginLeft: '25px',
                         fontSize: '30px',
                         backgroundColor: '#3f51b5',
                         padding: '15px',
                         color: 'white'
                       }}
+                      type='submit'
                     >
-                      or Register here
+                      Login
                     </Button>
-                  </Link>
-                </div>
-              </form>
-            </Paper>
-          </Modal>
-        </Toolbar>
+                    <Link
+                      style={{ textDecoration: 'none' }}
+                      onClick={handleClose}
+                      to='/register'
+                    >
+                      <Button
+                        style={{
+                          marginTop: '25px',
+                          marginLeft: '25px',
+                          fontSize: '30px',
+                          backgroundColor: '#3f51b5',
+                          padding: '15px',
+                          color: 'white'
+                        }}
+                      >
+                        or Register here
+                      </Button>
+                    </Link>
+                  </div>
+                </form>
+              </Paper>
+            </Modal>
+          </Toolbar>
+        </div>
       </AppBar>
     </div>
   );
