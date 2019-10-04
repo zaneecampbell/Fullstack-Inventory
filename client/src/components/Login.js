@@ -8,7 +8,20 @@ const Login = ({ login, isAuthenticated }) => {
     return <Redirect to='/dashboard' />;
   }
 
-  return <Fragment></Fragment>;
+  return (
+    <Fragment style={{ margin: '0px' }}>
+      <div
+        style={{
+          background:
+            'url(https://1bx8sf2g6npiljdzd499kxph-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/Blog_What-is-Inventory-400x234.jpg)',
+          backgroundSize: 'cover',
+          margin: '0px'
+        }}
+      >
+        test
+      </div>
+    </Fragment>
+  );
 };
 
 const mapStateToProps = state => ({

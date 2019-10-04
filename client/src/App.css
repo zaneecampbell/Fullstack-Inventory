@@ -3,7 +3,11 @@
 }
 
 body {
-  background: url('./img/warehouse.jpg');
+  background: linear-gradient(
+      rgba(210, 180, 140, 0.5),
+      rgba(210, 180, 140, 0.5)
+    ),
+    url('./img/warehouse.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

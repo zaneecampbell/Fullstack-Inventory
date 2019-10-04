@@ -24,7 +24,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <NavBar />
-        <div style={{ marginRight: '10px', marginLeft: '10px' }}>
+        <div>
           <Fragment>
             <Switch>
               <Route exact path='/' component={Login} />
