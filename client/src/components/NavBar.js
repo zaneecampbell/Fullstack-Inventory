@@ -47,13 +47,13 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
       return alert('Please include email and password');
     }
     login(email, password);
-    handleClose();
   };
 
   const onClick = async e => {
     e.preventDefault();
     delete axios.defaults.headers.common['x-auth-token'];
     logout();
+    handleClose();
     return history.push(`/`);
   };
 
@@ -171,7 +171,11 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
                   >
                     Login
                   </Button>
-                  <Link style={{ textDecoration: 'none' }} to='/register'>
+                  <Link
+                    style={{ textDecoration: 'none' }}
+                    onClick={handleClose}
+                    to='/register'
+                  >
                     <Button
                       style={{
                         marginTop: '25px',
