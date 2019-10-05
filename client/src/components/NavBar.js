@@ -7,7 +7,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
 import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
@@ -69,12 +68,12 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
   return isAuthenticated === true ? (
     <div style={{ backgroundColor: '#3f51b5' }} className={classes.root}>
       <AppBar
-        style={{ maxWidth: '1100px', margin: 'auto', boxShadow: 'none' }}
+        style={{ maxWidth: '1500px', margin: 'auto', boxShadow: 'none' }}
         position='static'
       >
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
-            Full Stack Inventory App
+            Snappy Inventory
           </Typography>
           <Button color='inherit' onClick={(e, history) => onClick(e, history)}>
             Logout
@@ -85,13 +84,13 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
   ) : (
     <div style={{ backgroundColor: '#3f51b5' }} className={classes.root}>
       <AppBar
-        style={{ maxWidth: '1100px', margin: 'auto', boxShadow: 'none' }}
+        style={{ maxWidth: '1500px', margin: 'auto', boxShadow: 'none' }}
         position='static'
       >
         <div>
           <Toolbar>
             <Typography variant='h6' className={classes.title}>
-              Full Stack Inventory App
+              Snappy Inventory
             </Typography>
             <Button color='inherit' onClick={handleOpen}>
               Login

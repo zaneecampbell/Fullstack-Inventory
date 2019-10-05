@@ -135,7 +135,7 @@ const Register = ({ register, isAuthenticated, alerts, setAlert }) => {
                   color: 'white'
                 }}
               >
-                Return to Login
+                Return to Main
               </Button>
             </Link>
           </form>
