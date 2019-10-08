@@ -43,7 +43,7 @@ const Login = ({ login, isAuthenticated }) => {
                 Snappy Inventory
               </Typography>
               <Typography style={{ marginTop: '25px' }} variant='h5'>
-                Simple, Fast, Intuitive. It's that easy
+                Simple, Fast, Intuitive. It's that easy.
               </Typography>
               <Link style={{ textDecoration: 'none' }} to='/register'>
                 <Button
@@ -155,7 +155,7 @@ const Login = ({ login, isAuthenticated }) => {
           >
             Snappy Inventory isn't here to bog you down with too much fluff for
             your fundraiser, charity event, or pokemon GO meetup. We're a small
-            quick (snappy if you will) inventory management system trying to
+            quick, snappy if you will, inventory management system trying to
             keep things simple for your inventory tracking needs. Our database
             is secure and hosted in the cloud for fast response times all over.
             We strive to add features and content all while maintaning the core
