@@ -3,9 +3,5 @@
 }
 
 body {
-  background: url('./img/warehouse.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   margin: 0;
 }

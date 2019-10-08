@@ -58,115 +58,139 @@ const Dashboard = ({
     deleteItem(index);
   };
   return loading && inventory === null ? (
-    <Paper
+    <div
       style={{
-        textAlign: 'center',
-        padding: '20px',
-        margin: 'auto',
-        marginTop: '20px',
-        maxWidth: '750px'
+        background: 'url(images/warehouse.jpg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        height: `calc(100vh - 64px)`
       }}
     >
-      <h1>Loading Your Inventory...</h1>
-    </Paper>
-  ) : (
-    <Fragment>
+      <div style={{ height: '20px' }}></div>
       <Paper
         style={{
-          maxWidth: '750px',
+          textAlign: 'center',
+          padding: '20px',
           margin: 'auto',
-          marginTop: '50px',
-          padding: '10px',
-          paddingBottom: '30px',
-          textAlign: 'center'
+          maxWidth: '750px'
         }}
       >
-        {user !== null ? (
-          <Typography variant='h3' style={{ marginBottom: '20px' }}>
-            {user.name}'s Inventory
-          </Typography>
-        ) : (
-          <Typography variant='h3' style={{ marginBottom: '20px' }}>
-            Your Inventory
-          </Typography>
-        )}
-        {alerts.map((alert, idx) => (
-          <Typography
-            style={{ background: 'red', color: 'white', fontSize: '22px' }}
-            key={idx}
-          >
-            {alert.msg}
-          </Typography>
-        ))}
-        <AddNewItem />
-        {inventory !== null && loading === false ? (
-          <form onSubmit={e => onSubmit(e)}>
-            {inventoryArray.map((item, idx) => (
-              <Grid container justify='center' key={item.index}>
-                <Typography variant='h5'>
-                  <Grid style={{ textAlign: 'left' }} xs={12} item>
-                    {item.item}:
-                  </Grid>
-                  <Grid xs={12} item>
-                    <input
-                      style={{
-                        fontSize: '22px',
-                        marginTop: '15px',
-                        marginBottom: '15px',
-                        marginRight: '15px',
-                        maxWidth: '100px'
-                      }}
-                      type='number'
-                      id={`${idx}`}
-                      placeholder='Enter Amount'
-                      name='amount'
-                      value={item.amount}
-                      onChange={e => onChange(e)}
-                    ></input>
-                    <Button
-                      style={{
-                        fontSize: '16px',
-                        backgroundColor: 'rgb(147, 25, 37)',
-                        padding: '5px',
-                        color: 'white'
-                      }}
-                      onClick={e => onDelete(e, item.index)}
-                    >
-                      X
-                    </Button>
-                  </Grid>
-                </Typography>
-              </Grid>
-            ))}
-            <Button
-              style={{
-                marginTop: '25px',
-                marginBottom: '5px',
-                fontSize: '30px',
-                backgroundColor: '#3f51b5',
-                padding: '15px',
-                color: 'white'
-              }}
-              type='submit'
-            >
-              Update Inventory
-            </Button>
-          </form>
-        ) : (
-          <div>
-            {alerts.map((alert, idx) => (
-              <Typography
-                style={{ background: 'red', color: 'white', fontSize: '22px' }}
-                key={idx}
-              >
-                {alert.msg}
-              </Typography>
-            ))}
-            <h3>Your inventory is empty</h3>
-          </div>
-        )}
+        <h1>Loading Your Inventory...</h1>
       </Paper>
-    </Fragment>
+    </div>
+  ) : (
+    <div
+      style={{
+        background: 'url(images/warehouse.jpg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        height: `calc(100vh - 64px)`
+      }}
+    >
+      <Fragment>
+        <div style={{ height: '50px' }}></div>
+        <Paper
+          style={{
+            maxWidth: '750px',
+            margin: 'auto',
+            padding: '10px',
+            paddingBottom: '30px',
+            textAlign: 'center'
+          }}
+        >
+          {user !== null ? (
+            <Typography variant='h3' style={{ marginBottom: '20px' }}>
+              {user.name}'s Inventory
+            </Typography>
+          ) : (
+            <Typography variant='h3' style={{ marginBottom: '20px' }}>
+              Your Inventory
+            </Typography>
+          )}
+          {alerts.map((alert, idx) => (
+            <Typography
+              style={{ background: 'red', color: 'white', fontSize: '22px' }}
+              key={idx}
+            >
+              {alert.msg}
+            </Typography>
+          ))}
+          <AddNewItem />
+          {inventory !== null && loading === false ? (
+            <form onSubmit={e => onSubmit(e)}>
+              {inventoryArray.map((item, idx) => (
+                <Grid container justify='center' key={item.index}>
+                  <Typography variant='h5'>
+                    <Grid style={{ textAlign: 'left' }} xs={12} item>
+                      {item.item}:
+                    </Grid>
+                    <Grid xs={12} item>
+                      <input
+                        style={{
+                          fontSize: '22px',
+                          marginTop: '15px',
+                          marginBottom: '15px',
+                          marginRight: '15px',
+                          maxWidth: '100px'
+                        }}
+                        type='number'
+                        id={`${idx}`}
+                        placeholder='Enter Amount'
+                        name='amount'
+                        value={item.amount}
+                        onChange={e => onChange(e)}
+                      ></input>
+                      <Button
+                        style={{
+                          fontSize: '16px',
+                          backgroundColor: 'rgb(147, 25, 37)',
+                          padding: '5px',
+                          color: 'white'
+                        }}
+                        onClick={e => onDelete(e, item.index)}
+                      >
+                        X
+                      </Button>
+                    </Grid>
+                  </Typography>
+                </Grid>
+              ))}
+              <Button
+                style={{
+                  marginTop: '25px',
+                  marginBottom: '5px',
+                  fontSize: '30px',
+                  backgroundColor: '#3f51b5',
+                  padding: '15px',
+                  color: 'white'
+                }}
+                type='submit'
+              >
+                Update Inventory
+              </Button>
+            </form>
+          ) : (
+            <div>
+              {alerts.map((alert, idx) => (
+                <Typography
+                  style={{
+                    background: 'red',
+                    color: 'white',
+                    fontSize: '22px'
+                  }}
+                  key={idx}
+                >
+                  {alert.msg}
+                </Typography>
+              ))}
+              <h3>Your inventory is empty</h3>
+            </div>
+          )}
+        </Paper>
+      </Fragment>
+    </div>
   );
 };
 
