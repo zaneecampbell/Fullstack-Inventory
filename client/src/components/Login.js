@@ -16,7 +16,6 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <div style={{ background: 'white', overflowX: 'hidden' }}>
-      <div style={{ height: '30px' }}></div>
       <div
         style={{
           background:
@@ -75,53 +74,54 @@ const Login = ({ login, isAuthenticated }) => {
           <Typography style={{ fontWeight: 'bold' }} variant='h2'>
             What we do
           </Typography>
-          <div style={{margin:'auto'}}>
-          <Grid
-            container
-            justify='center'
-            style={{ marginTop: '30px' }}
-          >
-            <Grid
-              xs={12}
-              md={3}
-              style={{ marginLeft: '20px', marginRight: '20px' }}
-              item
-            >
-              <Card style={{boxShadow: 'none', marginBottom: '20px'}}>
-                <CardContent>
-                  <img src="/images/database.png" alt="database icon" />
-                  <Typography style={{marginTop: '10px'}}>
-                    Save your information in our database.
-                  </Typography>
-                </CardContent>
-              </Card>
+          <div style={{ margin: 'auto', maxWidth: '1600px' }}>
+            <Grid container justify='center' style={{ marginTop: '30px' }}>
+              <Grid
+                xs={12}
+                md={3}
+                style={{ marginLeft: '20px', marginRight: '20px' }}
+                item
+              >
+                <Card style={{ boxShadow: 'none', marginBottom: '20px' }}>
+                  <CardContent>
+                    <img src='/images/database.png' alt='database icon' />
+                    <Typography style={{ marginTop: '10px' }}>
+                      Save your information in our database.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid
+                xs={12}
+                md={3}
+                style={{ marginLeft: '20px', marginRight: '20px' }}
+                item
+              >
+                <Card style={{ boxShadow: 'none', marginBottom: '20px' }}>
+                  <CardContent>
+                    <img src='/images/key.png' alt='key icon' />
+                    <Typography style={{ marginTop: '10px' }}>
+                      Allow you to login from anywhere
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid
+                xs={12}
+                md={3}
+                style={{ marginLeft: '20px', marginRight: '20px' }}
+                item
+              >
+                <Card style={{ boxShadow: 'none', marginBottom: '20px' }}>
+                  <CardContent>
+                    <img src='/images/snap.png' alt='snap icon' />
+                    <Typography style={{ marginTop: '10px' }}>
+                      Keep things simple and clean.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
             </Grid>
-            <Grid
-              xs={12}
-              md={3}
-              style={{ marginLeft: '20px', marginRight: '20px' }}
-              item
-            >
-              <Card style={{boxShadow: 'none', marginBottom: '20px'}}>
-                <CardContent>
-                <img src="/images/key.png" alt="key icon" />
-                  <Typography>Allow you to login from anywhere</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid
-              xs={12}
-              md={3}
-              style={{ marginLeft: '20px', marginRight: '20px' }}
-              item
-            >
-              <Card style={{boxShadow: 'none', marginBottom: '20px'}}>
-                <CardContent>
-                  <Typography>Keep things simple and clean.</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
           </div>
         </div>
       </div>
