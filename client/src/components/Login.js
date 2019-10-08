@@ -15,7 +15,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <div style={{ background: 'white', overflowX: 'hidden' }}>
+    <div style={{ background: 'white', overflowX: 'hidden', height: '100vh' }}>
       <div
         style={{
           background:
@@ -62,12 +62,12 @@ const Login = ({ login, isAuthenticated }) => {
           </div>
         </div>
       </div>
-      <div style={{ background: 'white', textAlign: 'center' }}>
+      <div style={{ textAlign: 'center' }}>
         <div
           style={{
             marginLeft: '50px',
             marginRight: '50px',
-            paddingTop: '25px'
+            paddingTop: '30px'
           }}
         >
           {' '}
@@ -101,7 +101,7 @@ const Login = ({ login, isAuthenticated }) => {
                   <CardContent>
                     <img src='/images/key.png' alt='key icon' />
                     <Typography style={{ marginTop: '10px' }}>
-                      Allow you to login from anywhere
+                      Allow you to login from anywhere.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -128,7 +128,7 @@ const Login = ({ login, isAuthenticated }) => {
       <div
         style={{
           background: 'white',
-          textAlign: 'left',
+          textAlign: 'center',
           marginLeft: '50px',
           marginRight: '50px'
         }}
@@ -136,12 +136,15 @@ const Login = ({ login, isAuthenticated }) => {
         <div
           style={{
             margin: 'auto',
-            paddingTop: '25px',
+            paddingTop: '15px',
             maxWidth: '1600px'
           }}
         >
-          <Typography style={{ fontWeight: 'bold' }} variant='h2'>
-            Why choose us?
+          <Typography
+            style={{ fontWeight: 'bold', marginBottom: '30px' }}
+            variant='h2'
+          >
+            And, why choose us?
           </Typography>
           <Typography
             style={{
@@ -150,11 +153,13 @@ const Login = ({ login, isAuthenticated }) => {
             }}
             variant='h5'
           >
-            Snappy Inventory isn't here to bog you down with too much for your
-            fundraiser, charity event, or pokemon GO meetup (hey we dont judge).
-            We're a small quicky (snappy if you will) inventory management
-            system trying to keep things simple for your inventory tracking
-            needs.
+            Snappy Inventory isn't here to bog you down with too much fluff for
+            your fundraiser, charity event, or pokemon GO meetup. We're a small
+            quick (snappy if you will) inventory management system trying to
+            keep things simple for your inventory tracking needs. Our database
+            is secure and hosted in the cloud for fast response times all over.
+            We strive to add features and content all while maintaning the core
+            intuitive simplicity.
           </Typography>
         </div>
       </div>
