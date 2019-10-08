@@ -72,7 +72,7 @@ const Login = ({ login, isAuthenticated }) => {
         >
           {' '}
           <Typography style={{ fontWeight: 'bold' }} variant='h2'>
-            What we do
+            What we do?
           </Typography>
           <div style={{ margin: 'auto', maxWidth: '1600px' }}>
             <Grid container justify='center' style={{ marginTop: '30px' }}>
