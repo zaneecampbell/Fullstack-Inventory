@@ -149,7 +149,8 @@ const Login = ({ login, isAuthenticated }) => {
           <Typography
             style={{
               marginTop: '10px',
-              paddingBottom: '25px'
+              paddingBottom: '25px',
+              fontSize: '1.4rem'
             }}
           >
             Snappy Inventory isn't here to bog you down with too much fluff for
