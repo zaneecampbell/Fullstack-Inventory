@@ -15,7 +15,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <div style={{ background: 'white', overflowX: 'hidden', height: '100vh' }}>
+    <div style={{ background: 'white', height: '100vh' }}>
       <div
         style={{
           background:
@@ -85,7 +85,7 @@ const Login = ({ login, isAuthenticated }) => {
                 <Card style={{ boxShadow: 'none', marginBottom: '20px' }}>
                   <CardContent>
                     <img src='/images/database.png' alt='database icon' />
-                    <Typography style={{ marginTop: '10px' }}>
+                    <Typography style={{ marginTop: '10px' }} variant='h5'>
                       Save your information in our database.
                     </Typography>
                   </CardContent>
@@ -100,7 +100,7 @@ const Login = ({ login, isAuthenticated }) => {
                 <Card style={{ boxShadow: 'none', marginBottom: '20px' }}>
                   <CardContent>
                     <img src='/images/key.png' alt='key icon' />
-                    <Typography style={{ marginTop: '10px' }}>
+                    <Typography style={{ marginTop: '10px' }} variant='h5'>
                       Allow you to login from anywhere.
                     </Typography>
                   </CardContent>
@@ -115,7 +115,7 @@ const Login = ({ login, isAuthenticated }) => {
                 <Card style={{ boxShadow: 'none', marginBottom: '20px' }}>
                   <CardContent>
                     <img src='/images/snap.png' alt='snap icon' />
-                    <Typography style={{ marginTop: '10px' }}>
+                    <Typography style={{ marginTop: '10px' }} variant='h5'>
                       Keep things simple and clean.
                     </Typography>
                   </CardContent>
@@ -151,7 +151,6 @@ const Login = ({ login, isAuthenticated }) => {
               marginTop: '10px',
               paddingBottom: '25px'
             }}
-            variant='h5'
           >
             Snappy Inventory isn't here to bog you down with too much fluff for
             your fundraiser, charity event, or pokemon GO meetup. We're a small
@@ -162,6 +161,20 @@ const Login = ({ login, isAuthenticated }) => {
             intuitive simplicity.
           </Typography>
         </div>
+      </div>
+      <div
+        style={{
+          textAlign: 'center',
+          background: '#e6e6e6',
+          marginBottom: '0px'
+        }}
+      >
+        <Typography
+          style={{ fontWeight: 'bold', marginTop: '30px', paddingTop: '30px' }}
+          variant='h2'
+        >
+          Contact
+        </Typography>
       </div>
     </div>
   );
