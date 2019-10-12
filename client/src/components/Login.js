@@ -167,15 +167,50 @@ const Login = ({ login, isAuthenticated }) => {
         style={{
           textAlign: 'center',
           background: '#e6e6e6',
-          marginBottom: '0px'
+          marginBottom: '0px',
+          paddingBottom: '25px'
         }}
       >
         <Typography
-          style={{ fontWeight: 'bold', marginTop: '30px', paddingTop: '30px' }}
+          style={{ fontWeight: 'bold', marginTop: '30px', paddingTop: '10px' }}
           variant='h2'
         >
           Contact
         </Typography>
+        <div style={{ margin: 'auto', maxWidth: '1600px' }}>
+          <Grid container justify='center' style={{ marginTop: '30px' }}>
+            <Grid
+              xs={12}
+              md={3}
+              style={{ marginLeft: '20px', marginRight: '20px' }}
+              item
+            >
+              <Typography style={{ fontSize: '1.4rem' }}>
+                Hours of Operation <br></br>7am-9pm PST
+              </Typography>
+            </Grid>
+            <Grid
+              xs={12}
+              md={3}
+              style={{ marginLeft: '20px', marginRight: '20px' }}
+              item
+            >
+              <Typography style={{ fontSize: '1.4rem' }}>
+                Phone <br></br>1-405-555-555Q
+              </Typography>
+            </Grid>
+            <Grid
+              xs={12}
+              md={3}
+              style={{ marginLeft: '20px', marginRight: '20px' }}
+              item
+            >
+              <Typography style={{ fontSize: '1.4rem' }}>
+                Email SnappySnap@SnappyInventory.co
+              </Typography>
+            </Grid>
+          </Grid>
+        </div>
       </div>
     </div>
   );
