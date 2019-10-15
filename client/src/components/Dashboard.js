@@ -96,6 +96,7 @@ const Dashboard = ({
         style={{
           maxWidth: '750px',
           margin: 'auto',
+          marginBottom: '15px',
           padding: '10px',
           paddingBottom: '30px',
           textAlign: 'center'

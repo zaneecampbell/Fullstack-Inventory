@@ -186,7 +186,7 @@ const Login = ({ login, isAuthenticated }) => {
               item
             >
               <Typography style={{ fontSize: '1.4rem' }}>
-                Hours of Operation <br></br>7am-9pm PST
+                Hours <br></br>7am-9pm PST
               </Typography>
             </Grid>
             <Grid
