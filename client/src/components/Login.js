@@ -62,7 +62,7 @@ const Login = ({ login, isAuthenticated }) => {
           </div>
         </div>
       </div>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', background: 'white' }}>
         <div
           style={{
             marginLeft: '50px',
@@ -129,8 +129,9 @@ const Login = ({ login, isAuthenticated }) => {
         style={{
           background: 'white',
           textAlign: 'center',
-          marginLeft: '50px',
-          marginRight: '50px'
+          paddingLeft: '50px',
+          paddingRight: '50px',
+          paddingBottom: '30px'
         }}
       >
         <div
@@ -172,7 +173,7 @@ const Login = ({ login, isAuthenticated }) => {
         }}
       >
         <Typography
-          style={{ fontWeight: 'bold', marginTop: '30px', paddingTop: '10px' }}
+          style={{ fontWeight: 'bold', paddingTop: '10px' }}
           variant='h2'
         >
           Contact
