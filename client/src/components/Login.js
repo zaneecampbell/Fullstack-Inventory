@@ -18,8 +18,7 @@ const Login = ({ login, isAuthenticated }) => {
     <div style={{ background: 'white', height: '100vh' }}>
       <div
         style={{
-          background:
-            'url(https://www.logisticsbureau.com/blog/wp-content/uploads/2012/05/Blog_What-is-Inventory.png)',
+          background: 'url(images/login_background.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '700px'
