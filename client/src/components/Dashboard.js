@@ -60,7 +60,7 @@ const Dashboard = ({
   return loading && inventory === null ? (
     <div
       style={{
-        background: 'url(images/warehouse.jpg)',
+        background: 'url(images/warehouse.webp)',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
@@ -83,7 +83,7 @@ const Dashboard = ({
     <div
       style={
         {
-          // background: 'url(images/warehouse.jpg)',
+          // background: 'url(images/warehouse.webp)',
           // backgroundRepeat: 'no-repeat',
           // backgroundAttachment: 'scroll',
           // backgroundSize: 'cover',
