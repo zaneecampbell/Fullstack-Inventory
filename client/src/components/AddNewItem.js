@@ -28,6 +28,7 @@ const AddNewItem = ({ createInventory, inventory }) => {
     setNewItemData({ ...newItemData, [e.target.name]: e.target.value });
   };
 
+  // Sends a request to add a new item to the inventory list
   const onSubmit = async e => {
     e.preventDefault();
     const formData = { item, amount, index };

@@ -37,6 +37,7 @@ const Dashboard = ({
     }
   }, [inventory, inventoryArray]);
 
+  // If not authenticated takes you back to the Login page
   if (!isAuthenticated && !authLoading) {
     return <Redirect to='/' />;
   }
@@ -80,17 +81,7 @@ const Dashboard = ({
       </Paper>
     </div>
   ) : (
-    <div
-      style={
-        {
-          // background: 'url(images/warehouse.webp)',
-          // backgroundRepeat: 'no-repeat',
-          // backgroundAttachment: 'scroll',
-          // backgroundSize: 'cover',
-          // height: `calc(100vh - 64px)`
-        }
-      }
-    >
+    <div>
       <div style={{ height: '50px' }}></div>
       <Paper
         style={{
