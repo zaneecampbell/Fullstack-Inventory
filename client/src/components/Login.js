@@ -10,6 +10,7 @@ import { login } from '../actions/auth';
 import { Typography, CardContent } from '@material-ui/core';
 
 const Login = ({ login, isAuthenticated }) => {
+  // if you have token and are authenticated logs takes you to your inventory
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
   }

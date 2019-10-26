@@ -40,6 +40,7 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
+  // Logs you in
   const onSubmit = async e => {
     e.preventDefault();
     if (!email || !password) {
@@ -49,6 +50,7 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
     setLoginData({ ...loginData, password: '' });
   };
 
+  // Logs you out
   const onClick = async e => {
     e.preventDefault();
     delete axios.defaults.headers.common['x-auth-token'];
@@ -65,6 +67,7 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
     setOpen(false);
   };
 
+  // Checks to see if you are authenticated or not to show login/out button
   return isAuthenticated === true ? (
     <div style={{ backgroundColor: '#3f51b5' }} className={classes.root}>
       <AppBar
@@ -95,6 +98,7 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
             <Button color='inherit' onClick={handleOpen}>
               Login
             </Button>
+            {/* Login Modal */}
             <Modal
               aria-labelledby='simple-modal-title'
               aria-describedby='simple-modal-description'
@@ -188,6 +192,7 @@ const NavBar = ({ isAuthenticated, logout, login, alerts, history }) => {
                 </form>
               </Paper>
             </Modal>
+            {/* Login Modal End*/}
           </Toolbar>
         </div>
       </AppBar>
