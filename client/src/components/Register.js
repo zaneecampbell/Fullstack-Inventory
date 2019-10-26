@@ -22,6 +22,7 @@ const Register = ({ register, isAuthenticated, alerts, setAlert }) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
 
+  // Try and create account and login
   const onSubmit = async e => {
     e.preventDefault();
     if (password === password2) {
@@ -31,6 +32,7 @@ const Register = ({ register, isAuthenticated, alerts, setAlert }) => {
     }
   };
 
+  // If you come to this page authenticated you get pushed to your inventory
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
   }

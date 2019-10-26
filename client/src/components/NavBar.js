@@ -211,5 +211,3 @@ export default withRouter(
     { logout, login }
   )(NavBar)
 );
-
-// clear form on login
